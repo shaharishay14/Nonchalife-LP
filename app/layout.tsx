@@ -7,7 +7,7 @@ import "./globals.css";
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["800"],
+  weight: ["700", "800"],
 });
 
 const geist = Geist({

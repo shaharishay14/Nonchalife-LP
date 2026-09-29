@@ -18,6 +18,11 @@ const config: Config = {
         lilac: "#D6CCFA",
         butter: "#F5E49C",
         night2: "#3A3935",
+        // Deeper art shades used in the designs.
+        butterDeep: "#E3C443",
+        lilacDeep: "#9D8CF0",
+        skyDeep: "#6FB3E3",
+        faint: "#B9B4AA",
       },
       fontFamily: {
         display: ["var(--font-bricolage)", "Helvetica Neue", "sans-serif"],

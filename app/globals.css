@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+:root {
+  /* 1px at the 1440 desktop design width, smaller below it. See lib/units.ts. */
+  --u: min(1px, calc(100vw / 1440));
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -8,4 +13,89 @@ html {
 body {
   background: #f3f1ec;
   color: #141412;
+  /* Art pokes past the edges on purpose, as in the designs. */
+  overflow-x: clip;
+}
+
+/* Looping art animations. One 3400ms cycle; `--d` offsets a group. */
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  100% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 40deg)); }
+}
+.float { animation: float 2600ms ease-in-out infinite alternate; }
+
+@keyframes card-done {
+  0%, 14% { background: #ffffff; border-color: #e6e2da; }
+  17%, 88% { background: #d8f07a; border-color: #d8f07a; }
+  94%, 100% { background: #ffffff; border-color: #e6e2da; }
+}
+@keyframes pop {
+  0%, 14% { transform: scale(1); }
+  19% { transform: scale(1.18); }
+  24% { transform: scale(0.95); }
+  29%, 100% { transform: scale(1); }
+}
+@keyframes check {
+  0%, 14% { opacity: 0; }
+  15%, 88% { opacity: 1; }
+  94%, 100% { opacity: 0; }
+}
+@keyframes fill-sq {
+  0%, 14% { background: transparent; border-color: #f3f1ec; }
+  15%, 88% { background: #d8f07a; border-color: #d8f07a; }
+  94%, 100% { background: transparent; border-color: #f3f1ec; }
+}
+.card-done { animation: card-done 3400ms linear infinite; animation-delay: var(--d, 0s); }
+.pop { animation: pop 3400ms ease-out infinite; animation-delay: var(--d, 0s); }
+.check { opacity: 0; animation: check 3400ms linear infinite; animation-delay: var(--d, 0s); }
+/* The mobile design keeps today's square empty and still. */
+@media (min-width: 900px) {
+  .fill-sq { animation: fill-sq 3400ms linear infinite, pop 3400ms ease-out infinite; animation-delay: var(--d, 0s); }
+}
+
+.burst span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(10 * var(--bu, 1px));
+  height: calc(10 * var(--bu, 1px));
+  border-radius: calc(3 * var(--bu, 1px));
+  opacity: 0;
+  animation-delay: var(--d, 0s) !important;
+}
+@keyframes b1 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(16 * var(--bu, 1px)), calc(-93 * var(--bu, 1px))) rotate(90deg) scale(1); opacity: 0; } }
+.burst .b1 { animation: b1 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b2 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(53 * var(--bu, 1px)), calc(-69 * var(--bu, 1px))) rotate(-60deg) scale(1); opacity: 0; } }
+.burst .b2 { animation: b2 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b3 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(88 * var(--bu, 1px)), calc(-34 * var(--bu, 1px))) rotate(140deg) scale(1); opacity: 0; } }
+.burst .b3 { animation: b3 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b4 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(98 * var(--bu, 1px)), calc(19 * var(--bu, 1px))) rotate(-100deg) scale(1); opacity: 0; } }
+.burst .b4 { animation: b4 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b5 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(59 * var(--bu, 1px)), calc(59 * var(--bu, 1px))) rotate(70deg) scale(1); opacity: 0; } }
+.burst .b5 { animation: b5 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b6 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(13 * var(--bu, 1px)), calc(80 * var(--bu, 1px))) rotate(-130deg) scale(1); opacity: 0; } }
+.burst .b6 { animation: b6 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b7 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(-35 * var(--bu, 1px)), calc(70 * var(--bu, 1px))) rotate(110deg) scale(1); opacity: 0; } }
+.burst .b7 { animation: b7 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b8 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(-77 * var(--bu, 1px)), calc(32 * var(--bu, 1px))) rotate(-75deg) scale(1); opacity: 0; } }
+.burst .b8 { animation: b8 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b9 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(-91 * var(--bu, 1px)), calc(-22 * var(--bu, 1px))) rotate(160deg) scale(1); opacity: 0; } }
+.burst .b9 { animation: b9 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b10 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(-64 * var(--bu, 1px)), calc(-66 * var(--bu, 1px))) rotate(-95deg) scale(1); opacity: 0; } }
+.burst .b10 { animation: b10 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b11 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(-22 * var(--bu, 1px)), calc(-101 * var(--bu, 1px))) rotate(120deg) scale(1); opacity: 0; } }
+.burst .b11 { animation: b11 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+@keyframes b12 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(38 * var(--bu, 1px)), calc(-112 * var(--bu, 1px))) rotate(-150deg) scale(1); opacity: 0; } }
+.burst .b12 { animation: b12 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .burst { display: none; }
+  .float, .card-done, .pop, .check, .fill-sq { animation: none; }
+  .check { opacity: 1; }
+  .card-done { background: #d8f07a !important; border-color: #d8f07a !important; }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 900px) {
+  .fill-sq { background: #d8f07a !important; border-color: #d8f07a !important; }
 }
