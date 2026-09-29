@@ -16,6 +16,17 @@ const floats = [
   { left: 1395, top: 300, size: 9, radius: 3, color: "#F2A27C", rotate: 60, delay: 500 },
 ].map((f) => ({ ...f, left: u(f.left), top: u(f.top) }));
 
+// The same squares around the mobile art, in its 390 coordinates.
+const floatsMobile = [
+  { left: 14, top: 40, size: 12, radius: 3, color: "#F2A27C", rotate: 20, delay: 0 },
+  { left: 10, top: 420, size: 9, radius: 5, color: "#141412", rotate: 70, delay: 400 },
+  { left: 22, top: 640, size: 11, radius: 3, color: "#9D8CF0", rotate: -30, delay: 900 },
+  { left: 150, top: 24, size: 10, radius: 3, color: "#A8CC2E", rotate: 45, delay: 300 },
+  { left: 330, top: 14, size: 8, radius: 4, color: "#6FB3E3", rotate: 10, delay: 1200 },
+  { left: 180, top: 704, size: 12, radius: 3, color: "#E3C443", rotate: -15, delay: 700 },
+  { left: 356, top: 690, size: 9, radius: 3, color: "#F2A27C", rotate: 60, delay: 500 },
+].map((f) => ({ ...f, left: `${f.left}px`, top: `${f.top}px` }));
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -64,6 +75,7 @@ export default function Hero() {
         <div className="relative mx-auto h-[720px] w-[390px] desk:hidden">
           <Blob style={{ left: -90, top: 290, width: 520, height: 170, borderRadius: 85, background: "#D8F07A", transform: "rotate(-12deg)" }} />
           <Blob style={{ left: 200, top: 10, width: 300, height: 120, borderRadius: 60, background: "#C4E1F6", transform: "rotate(14deg)" }} />
+          <Floats items={floatsMobile} />
           <Phone size="sm" screen="activity-dark" label="Activity heatmap in dark mode" style={{ left: 190, top: 50, transform: "rotate(8deg)" }} />
           <Phone size="sm" screen="today" label="Today screen with a finished habit" style={{ left: 34, top: 70, transform: "rotate(-4deg)" }} />
         </div>

@@ -11,7 +11,7 @@ type HabitCardProps = {
   /** Partial progress fill from the left, e.g. `{ width: "75%", color: "#C4E1F6" }`. */
   progress?: { width: string; color: string };
   done?: boolean;
-  /** Loops from not done to done. Desktop feature 01 only. */
+  /** Loops from not done to done. Feature 01 only. */
   animated?: boolean;
   shadow?: "sm" | "md";
   className?: string;
