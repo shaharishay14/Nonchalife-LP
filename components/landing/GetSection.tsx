@@ -13,7 +13,8 @@ export default function GetSection() {
     <div className="mx-auto max-w-[1440px] px-4 desk:px-(--m)" style={{ "--m": u(48) } as CSSProperties}>
       <section
         id="get"
-        className="flex h-[470px] scroll-mt-4 flex-col items-center justify-center rounded-[40px] bg-ink px-7 text-center text-bg desk:h-auto desk:min-h-(--h) desk:rounded-[48px] desk:px-24 desk:py-20"
+        data-dark
+        className="flex h-[470px] flex-col items-center justify-center rounded-[40px] bg-ink px-7 text-center text-bg desk:h-auto desk:min-h-(--h) desk:rounded-[48px] desk:px-24 desk:py-20"
         style={{ "--h": u(600) } as CSSProperties}
       >
         <div aria-hidden="true" className="relative flex gap-1.5 desk:gap-2" style={{ "--d": "-2600ms" } as CSSProperties}>

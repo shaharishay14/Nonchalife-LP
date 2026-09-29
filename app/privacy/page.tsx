@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import EmailLink from "@/components/legal/EmailLink";
 import LegalLayout, { Bullets, Lead, P, type LegalSection } from "@/components/legal/LegalLayout";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy policy · Nonchalife" };
+export const metadata: Metadata = pageMetadata(
+  "/privacy",
+  "Privacy policy",
+  "What Nonchalife collects, why, and how to delete it. No ads, no tracking.",
+);
 
 const sections: LegalSection[] = [
   {
@@ -12,9 +17,16 @@ const sections: LegalSection[] = [
     body: (
       <Bullets
         items={[
-          <><Lead>Your email address.</Lead> Used to sign you in with a 6-digit code.</>,
-          <><Lead>Your habits.</Lead> The habits you create, their schedules and targets, and the days you complete them.</>,
-          <><Lead>Basic device data</Lead> needed to schedule your reminders. Reminders are scheduled on your phone.</>,
+          <>
+            <Lead>Your email address.</Lead> Used to sign you in with a 6-digit code.
+          </>,
+          <>
+            <Lead>Your habits.</Lead> The habits you create, their schedules and targets, and the days you complete
+            them.
+          </>,
+          <>
+            <Lead>Basic device data</Lead> needed to schedule your reminders. Reminders are scheduled on your phone.
+          </>,
         ]}
       />
     ),
@@ -37,8 +49,9 @@ const sections: LegalSection[] = [
     color: "#D6CCFA",
     body: (
       <P>
-        Your account and habits are stored with our database provider (Supabase) so they’re available on your account. A copy
-        is kept on your device so reminders work offline. Sign-in emails are sent through an email delivery provider.
+        Your account and habits are stored with our database provider (Supabase) so they’re available on your account. A
+        copy is kept on your device so reminders work offline. Sign-in emails are sent through an email delivery
+        provider.
       </P>
     ),
   },
@@ -48,8 +61,8 @@ const sections: LegalSection[] = [
     color: "#C4E1F6",
     body: (
       <P>
-        You can delete your account and all its data from inside the app. You can also email us at <EmailLink /> and we’ll
-        delete it.
+        You can delete your account and all its data from inside the app. You can also email us at <EmailLink /> and
+        we’ll delete it.
       </P>
     ),
   },

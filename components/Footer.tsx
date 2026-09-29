@@ -18,7 +18,7 @@ export default function Footer() {
       </div>
       <div className="flex items-center gap-7">
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className="flex h-11 items-center desk:h-auto">
+          <Link key={link.href} href={link.href} className="flex h-11 items-center transition-colors hover:text-ink desk:h-auto">
             {link.label}
           </Link>
         ))}

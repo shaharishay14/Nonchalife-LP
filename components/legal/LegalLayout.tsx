@@ -29,7 +29,7 @@ export default function LegalLayout({ title, updated, intro, sections }: LegalLa
         >
           <span className="px-3 pb-2.5 text-sm font-semibold uppercase tracking-[0.04em] text-muted">On this page</span>
           {sections.map((s, i) => (
-            <a key={s.id} href={`#${s.id}`} className="flex h-12 items-center gap-3.5 rounded-2xl px-3 text-[17px] font-medium">
+            <a key={s.id} href={`#${s.id}`} className="flex h-12 items-center gap-3.5 rounded-2xl px-3 text-[17px] font-medium transition-colors hover:bg-bg">
               <span className="w-[22px] font-display text-base font-extrabold text-muted">{i + 1}</span>
               <span>{s.title}</span>
             </a>
@@ -40,7 +40,7 @@ export default function LegalLayout({ title, updated, intro, sections }: LegalLa
             <section
               key={s.id}
               id={s.id}
-              className={`scroll-mt-6 rounded-card border p-6 desk:p-11 ${
+              className={`rounded-card border p-6 desk:p-11 ${
                 s.dark ? "border-ink bg-ink text-bg" : "border-line bg-card text-ink"
               }`}
             >

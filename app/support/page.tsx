@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import { ArrowRight } from "@/components/icons";
 import PageHeader from "@/components/legal/PageHeader";
 import { CONTACT_EMAIL } from "@/lib/config";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Support · Nonchalife" };
+export const metadata: Metadata = pageMetadata(
+  "/support",
+  "Support",
+  "Something not working in Nonchalife? Email us and we’ll get back to you.",
+);
 
 const answers = [
   { q: "I didn’t get my sign-in code.", a: "Check spam, wait a minute, then ask for a new one. Codes work once." },
@@ -34,14 +39,14 @@ export default function SupportPage() {
             <span className="text-[17px] font-semibold">Email us</span>
             <a
               href={mailto}
-              className="mt-3 break-all font-display text-[clamp(26px,3.9vw,56px)] font-extrabold leading-none tracking-[-0.045em]"
+              className="mt-3 break-all font-display transition-opacity hover:opacity-75 text-[clamp(26px,3.9vw,56px)] font-extrabold leading-none tracking-[-0.045em]"
             >
               {CONTACT_EMAIL}
             </a>
           </div>
           <a
             href={mailto}
-            className="flex h-16 shrink-0 items-center gap-2.5 self-stretch rounded-full bg-ink px-8 text-lg font-semibold text-bg max-desk:justify-center desk:self-auto"
+            className="flex h-16 shrink-0 items-center gap-2.5 self-stretch rounded-full bg-ink px-8 text-lg font-semibold text-bg transition hover:bg-night2 active:scale-[0.97] max-desk:justify-center desk:self-auto"
           >
             Send an email
             <ArrowRight size={20} />
@@ -53,8 +58,13 @@ export default function SupportPage() {
         </h2>
         <div className="mt-7 grid gap-6 md:grid-cols-2">
           {answers.map(({ q, a }) => (
-            <div key={q} className="flex flex-col gap-3 rounded-card border border-line bg-card p-7 desk:min-h-[200px] desk:p-9">
-              <h3 className="font-display text-2xl font-extrabold leading-[1.1] tracking-[-0.03em] desk:text-[26px]">{q}</h3>
+            <div
+              key={q}
+              className="flex flex-col gap-3 rounded-card border border-line bg-card p-7 desk:min-h-[200px] desk:p-9"
+            >
+              <h3 className="font-display text-2xl font-extrabold leading-[1.1] tracking-[-0.03em] desk:text-[26px]">
+                {q}
+              </h3>
               <p className="text-[17px] leading-[1.55] text-body">{a}</p>
             </div>
           ))}

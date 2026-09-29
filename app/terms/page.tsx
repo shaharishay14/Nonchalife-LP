@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import EmailLink from "@/components/legal/EmailLink";
 import LegalLayout, { P, type LegalSection } from "@/components/legal/LegalLayout";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Terms of use · Nonchalife" };
+export const metadata: Metadata = pageMetadata(
+  "/terms",
+  "Terms of use",
+  "The short, plain rules for using Nonchalife.",
+);
 
 const sections: LegalSection[] = [
   {
@@ -25,7 +30,10 @@ const sections: LegalSection[] = [
     body: (
       <P>
         Your habits are yours. See the{" "}
-        <Link href="/privacy" className="font-semibold underline underline-offset-[3px]">
+        <Link
+          href="/privacy"
+          className="font-semibold underline underline-offset-[3px] transition-colors hover:text-body"
+        >
           Privacy Policy
         </Link>{" "}
         for how we handle them.
@@ -38,8 +46,8 @@ const sections: LegalSection[] = [
     color: "#C4E1F6",
     body: (
       <P>
-        We work hard to keep it reliable, but we can’t promise it will always be available or error-free. We’re not liable for
-        lost data or missed reminders to the extent the law allows.
+        We work hard to keep it reliable, but we can’t promise it will always be available or error-free. We’re not
+        liable for lost data or missed reminders to the extent the law allows.
       </P>
     ),
   },

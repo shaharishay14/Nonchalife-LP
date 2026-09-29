@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties } from "react";
 import { u } from "@/lib/units";
 
@@ -5,7 +6,7 @@ export type Screen = "today" | "activity" | "activity-dark" | "timer";
 
 type PhoneProps = {
   screen: Screen;
-  /** Accessible description. Omit when a parent already describes the art. */
+  /** Alt text for the screenshot. Omit when a parent already describes the art. */
   label?: string;
   /** "lg" is the 1440 desktop frame (scales with `--u`), "sm" the 390 mobile frame. */
   size: "lg" | "sm";
@@ -20,10 +21,7 @@ const frames = {
   sm: { unit: px, w: 300, h: 628, r: 48, inner: 39, notch: { l: 102, t: 8, w: 78, h: 23, r: 12 }, shadow: [30, 60] },
 };
 
-/**
- * A phone frame holding an app screenshot. Until the real PNGs land in
- * `public/screens/`, the screen is a neutral placeholder.
- */
+/** A phone frame holding an app screenshot from `public/screens/`. */
 export default function Phone({ screen, label, size, className = "", style }: PhoneProps) {
   const f = frames[size];
   const n = f.unit;
@@ -31,9 +29,6 @@ export default function Phone({ screen, label, size, className = "", style }: Ph
 
   return (
     <div
-      role={label ? "img" : undefined}
-      aria-label={label}
-      aria-hidden={label ? undefined : true}
       className={`absolute bg-ink ${className}`}
       style={{
         width: n(f.w),
@@ -48,6 +43,13 @@ export default function Phone({ screen, label, size, className = "", style }: Ph
         className={`relative size-full overflow-hidden ${dark ? "bg-night2" : "bg-line"}`}
         style={{ borderRadius: n(f.inner) }}
       >
+        <Image
+          src={`/screens/${screen}.png`}
+          alt={label ?? ""}
+          fill
+          sizes={size === "lg" ? "312px" : "282px"}
+          className="object-cover object-top"
+        />
         <div
           className="absolute bg-black"
           style={{

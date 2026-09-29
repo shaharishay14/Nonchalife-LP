@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import GetButton from "@/components/GetButton";
 import { ArrowDown } from "@/components/icons";
 import { Blob, Floats } from "@/components/landing/Decor";
@@ -15,67 +16,56 @@ const floats = [
   { left: 1395, top: 300, size: 9, radius: 3, color: "#F2A27C", rotate: 60, delay: 500 },
 ].map((f) => ({ ...f, left: u(f.left), top: u(f.top) }));
 
-function Headline() {
-  return (
-    <h1 className="mt-[22px] font-display text-[46px] font-extrabold leading-[1.02] tracking-[-0.045em] desk:mt-7 desk:text-[clamp(46px,6.39vw,92px)]">
-      Habits, done
-      <br />
-      <span className="-ml-1 rounded-2xl bg-lime px-2.5 [box-decoration-break:clone] desk:-ml-[0.065em] desk:rounded-[0.24em] desk:px-[0.152em]">
-        nonchalantly.
-      </span>
-    </h1>
-  );
-}
-
-const lede = "Water, reading, the morning run. Tap the card when it’s done and get on with your day.";
-
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Mobile */}
-      <div className="desk:hidden">
-        <div className="mx-auto flex max-w-[600px] flex-col items-start px-6 pt-6">
-          <Badge>A habit tracker for iPhone</Badge>
-          <Headline />
-          <p className="mt-5 text-lg font-medium leading-[1.45] text-body">{lede}</p>
-          <GetButton tone="dark" className="mt-7 h-[60px] self-stretch" />
-          <a href="#features" className="mt-3 flex h-11 items-center gap-2 text-[17px] font-semibold">
-            See how it works
-            <ArrowDown size={18} />
-          </a>
-          <span className="mt-2 text-[15px] font-medium text-muted">Free to download</span>
+      <div className="relative mx-auto max-w-[1440px] desk:min-h-(--h)" style={{ "--h": u(860) } as CSSProperties}>
+        {/* Desktop art, placed on the 1440 design's coordinates. */}
+        <div className="absolute inset-0 hidden desk:block">
+          <Blob style={{ left: u(700), top: u(470), width: u(900), height: u(250), borderRadius: u(125), background: "#D8F07A", transform: "rotate(-12deg)" }} />
+          <Blob style={{ left: u(1010), top: u(110), width: u(620), height: u(200), borderRadius: u(100), background: "#C4E1F6", transform: "rotate(14deg)" }} />
+          <Floats items={floats} />
+          <Phone size="lg" screen="activity-dark" label="Activity heatmap in dark mode" style={{ left: u(1070), top: u(130), transform: "rotate(6deg)" }} />
+          <Phone size="lg" screen="today" label="Today screen with a finished habit" style={{ left: u(770), top: u(110), transform: "rotate(-6deg)" }} />
         </div>
-        {/* Art: the 390 design's coordinates, offset by the text block above it. */}
-        <div className="relative mx-auto h-[720px] w-[390px]">
-          <Blob style={{ left: -90, top: 290, width: 520, height: 170, borderRadius: 85, background: "#D8F07A", transform: "rotate(-12deg)" }} />
-          <Blob style={{ left: 200, top: 10, width: 300, height: 120, borderRadius: 60, background: "#C4E1F6", transform: "rotate(14deg)" }} />
-          <Phone size="sm" screen="activity-dark" label="Activity heatmap in dark mode" style={{ left: 190, top: 50, transform: "rotate(8deg)" }} />
-          <Phone size="sm" screen="today" label="Today screen with a finished habit" style={{ left: 34, top: 70, transform: "rotate(-4deg)" }} />
-        </div>
-      </div>
 
-      {/* Desktop */}
-      <div className="relative mx-auto hidden max-w-[1440px] desk:block" style={{ minHeight: u(860) }}>
-        <Blob style={{ left: u(700), top: u(470), width: u(900), height: u(250), borderRadius: u(125), background: "#D8F07A", transform: "rotate(-12deg)" }} />
-        <Blob style={{ left: u(1010), top: u(110), width: u(620), height: u(200), borderRadius: u(100), background: "#C4E1F6", transform: "rotate(14deg)" }} />
-        <Floats items={floats} />
-        <Phone size="lg" screen="activity-dark" label="Activity heatmap in dark mode" style={{ left: u(1070), top: u(130), transform: "rotate(6deg)" }} />
-        <Phone size="lg" screen="today" label="Today screen with a finished habit" style={{ left: u(770), top: u(110), transform: "rotate(-6deg)" }} />
-
-        <div className="relative flex flex-col items-start" style={{ padding: `${u(150)} 0 ${u(80)} ${u(96)}`, width: u(716) }}>
+        <div
+          className="relative flex max-w-[600px] flex-col items-start px-6 pt-6 desk:w-(--w) desk:max-w-none desk:pt-(--pt) desk:pr-0 desk:pb-(--pb) desk:pl-(--pl)"
+          style={{ "--w": u(716), "--pt": u(150), "--pb": u(80), "--pl": u(96) } as CSSProperties}
+        >
           <Badge>A habit tracker for iPhone</Badge>
-          <Headline />
-          <p className="mt-7 text-[clamp(18px,1.53vw,22px)] font-medium leading-[1.4] text-body" style={{ maxWidth: `max(${u(520)}, 340px)` }}>
-            {lede}
+          <h1 className="mt-[22px] font-display text-[46px] font-extrabold leading-[1.02] tracking-[-0.045em] desk:mt-7 desk:text-[clamp(46px,6.39vw,92px)]">
+            Habits, done
+            <br />
+            <span className="-ml-1 rounded-2xl bg-lime px-2.5 [box-decoration-break:clone] desk:-ml-[0.065em] desk:rounded-[0.24em] desk:px-[0.152em]">
+              nonchalantly.
+            </span>
+          </h1>
+          <p
+            className="mt-5 text-lg font-medium leading-[1.45] text-body desk:mt-7 desk:max-w-(--pw) desk:text-[clamp(18px,1.53vw,22px)] desk:leading-[1.4]"
+            style={{ "--pw": `max(${u(520)}, 340px)` } as CSSProperties}
+          >
+            Water, reading, the morning run. Tap the card when it’s done and get on with your day.
           </p>
-          <div className="mt-11 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <GetButton tone="dark" className="h-16 px-8" />
-            <a href="#features" className="flex items-center gap-2 text-[17px] font-semibold">
+          <div className="mt-7 flex flex-col items-start self-stretch desk:mt-11 desk:flex-row desk:flex-wrap desk:items-center desk:gap-x-7 desk:gap-y-4 desk:self-auto">
+            <GetButton tone="dark" className="h-[60px] self-stretch desk:h-16 desk:self-auto desk:px-8" />
+            <a
+              href="#features"
+              className="mt-3 flex h-11 items-center gap-2 text-[17px] font-semibold transition-colors hover:text-body desk:mt-0 desk:h-auto"
+            >
               See how it works
               <ArrowDown size={18} />
             </a>
           </div>
-          <span className="mt-5 text-[15px] font-medium text-muted">Free to download</span>
+          <span className="mt-2 text-[15px] font-medium text-muted desk:mt-5">Free to download</span>
+        </div>
+
+        {/* Mobile art: the 390 design's coordinates, offset by the text block above it. */}
+        <div className="relative mx-auto h-[720px] w-[390px] desk:hidden">
+          <Blob style={{ left: -90, top: 290, width: 520, height: 170, borderRadius: 85, background: "#D8F07A", transform: "rotate(-12deg)" }} />
+          <Blob style={{ left: 200, top: 10, width: 300, height: 120, borderRadius: 60, background: "#C4E1F6", transform: "rotate(14deg)" }} />
+          <Phone size="sm" screen="activity-dark" label="Activity heatmap in dark mode" style={{ left: 190, top: 50, transform: "rotate(8deg)" }} />
+          <Phone size="sm" screen="today" label="Today screen with a finished habit" style={{ left: 34, top: 70, transform: "rotate(-4deg)" }} />
         </div>
       </div>
     </section>

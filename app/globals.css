@@ -7,7 +7,29 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Anchor jumps land below the sticky nav. */
+  scroll-padding-top: 88px;
+}
+
+@media (min-width: 900px) {
+  html {
+    scroll-padding-top: 112px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #141412;
+  outline-offset: 3px;
+}
+
+[data-dark] :focus-visible {
+  outline-color: #d8f07a;
 }
 
 body {
@@ -89,7 +111,9 @@ body {
 @keyframes b12 { 0%, 14% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; } 15%, 32% { opacity: 1; } 48%, 100% { transform: translate(calc(38 * var(--bu, 1px)), calc(-112 * var(--bu, 1px))) rotate(-150deg) scale(1); opacity: 0; } }
 .burst .b12 { animation: b12 3400ms cubic-bezier(0.15, 0.7, 0.3, 1) infinite; }
 
+/* Reduced motion: no loops, show the finished state. */
 @media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0s !important; }
   .burst { display: none; }
   .float, .card-done, .pop, .check, .fill-sq { animation: none; }
   .check { opacity: 1; }
