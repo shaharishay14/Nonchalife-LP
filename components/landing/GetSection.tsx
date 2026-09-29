@@ -25,7 +25,7 @@ export default function GetSection() {
             />
           ))}
           <span className="block size-7 rounded-[9px] border-[1.5px] border-bg fill-sq desk:size-9 desk:rounded-xl" />
-          <Burst colors={burstColors} className="hidden desk:block" style={{ right: 18, top: 18 }} />
+          <Burst colors={burstColors} className="right-3.5 top-3.5 desk:right-[18px] desk:top-[18px]" />
         </div>
         <h2 className="mt-7 font-display text-[46px] font-extrabold leading-[1.02] tracking-[-0.05em] desk:mt-9 desk:text-[clamp(46px,7.22vw,104px)] desk:leading-none">
           Start small.

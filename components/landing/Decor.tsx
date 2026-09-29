@@ -42,7 +42,7 @@ export function Blob({ style }: { style: CSSProperties }) {
  * Twelve squares that shoot out from a point, timed with the done animation.
  * Place it inside a parent that sets `--d` (animation offset) and `--bu` (unit).
  */
-export function Burst({ colors, className = "", style }: { colors: string[]; className?: string; style: CSSProperties }) {
+export function Burst({ colors, className = "", style }: { colors: string[]; className?: string; style?: CSSProperties }) {
   return (
     <div aria-hidden="true" className={`burst pointer-events-none absolute z-[5] size-0 ${className}`} style={style}>
       {colors.map((c, i) => (
