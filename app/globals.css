@@ -71,10 +71,7 @@ body {
 .card-done { animation: card-done 3400ms linear infinite; animation-delay: var(--d, 0s); }
 .pop { animation: pop 3400ms ease-out infinite; animation-delay: var(--d, 0s); }
 .check { opacity: 0; animation: check 3400ms linear infinite; animation-delay: var(--d, 0s); }
-/* The mobile design keeps today's square empty and still. */
-@media (min-width: 900px) {
-  .fill-sq { animation: fill-sq 3400ms linear infinite, pop 3400ms ease-out infinite; animation-delay: var(--d, 0s); }
-}
+.fill-sq { animation: fill-sq 3400ms linear infinite, pop 3400ms ease-out infinite; animation-delay: var(--d, 0s); }
 
 .burst span {
   position: absolute;
@@ -117,9 +114,5 @@ body {
   .burst { display: none; }
   .float, .card-done, .pop, .check, .fill-sq { animation: none; }
   .check { opacity: 1; }
-  .card-done { background: #d8f07a !important; border-color: #d8f07a !important; }
-}
-
-@media (prefers-reduced-motion: reduce) and (min-width: 900px) {
-  .fill-sq { background: #d8f07a !important; border-color: #d8f07a !important; }
+  .card-done, .fill-sq { background: #d8f07a !important; border-color: #d8f07a !important; }
 }

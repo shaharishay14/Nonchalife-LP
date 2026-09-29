@@ -122,9 +122,12 @@ function Feature01() {
     <FeatureRow>
       {text}
       <MobilePanel label={label} color="#F5E49C">
-        <div className="absolute inset-x-6 top-1/2 mx-auto flex max-w-[342px] -translate-y-1/2 flex-col gap-3">
+        <div
+          className="absolute inset-x-6 top-1/2 mx-auto flex max-w-[342px] -translate-y-1/2 flex-col gap-3"
+          style={{ "--d": "-1400ms" } as CSSProperties}
+        >
           <HabitCard {...cards01.water} />
-          <HabitCard {...cards01.run} color="#D8F07A" done />
+          <HabitCard {...cards01.run} animated />
           <HabitCard {...cards01.stretch} />
         </div>
       </MobilePanel>
