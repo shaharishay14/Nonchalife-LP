@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f3f1ec;
+  color: #141412;
+}
