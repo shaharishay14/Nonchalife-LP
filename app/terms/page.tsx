@@ -66,8 +66,6 @@ const sections: LegalSection[] = [
         <P>
           Questions about these terms? Email <EmailLink />.
         </P>
-        {/* PLACEHOLDER: fill in before App Store submission (see SPEC.md, "Flag these"). */}
-        <P>Nonchalife is an independent app based in Israel. These terms are governed by the laws of Israel.</P>
       </div>
     ),
   },
