@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Hide the round "N" dev tools button in `next dev`.
+  devIndicators: false,
 };
 
 export default nextConfig;
