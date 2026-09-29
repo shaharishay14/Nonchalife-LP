@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { ArrowRight } from "@/components/icons";
+import GetButton from "@/components/GetButton";
 import { Burst } from "@/components/landing/Decor";
 import { u } from "@/lib/units";
 
@@ -34,13 +34,7 @@ export default function GetSection() {
         <p className="mt-4 text-lg font-medium leading-[1.4] text-faint desk:mt-6 desk:text-[21px]">
           Free on iPhone. Add your first habit and go.
         </p>
-        <a
-          href="#get"
-          className="mt-8 flex h-[60px] items-center justify-center gap-2.5 self-stretch rounded-[30px] bg-lime text-lg font-semibold text-ink desk:mt-10 desk:h-16 desk:self-auto desk:rounded-[32px] desk:px-9"
-        >
-          Get it on iPhone
-          <ArrowRight size={20} />
-        </a>
+        <GetButton tone="lime" className="mt-8 h-[60px] self-stretch desk:mt-10 desk:h-16 desk:self-auto desk:px-9" />
       </section>
     </div>
   );

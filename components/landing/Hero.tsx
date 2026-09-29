@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowRight } from "@/components/icons";
+import GetButton from "@/components/GetButton";
+import { ArrowDown } from "@/components/icons";
 import { Blob, Floats } from "@/components/landing/Decor";
 import Phone from "@/components/landing/Phone";
 import { Badge } from "@/components/landing/Pill";
@@ -37,13 +38,7 @@ export default function Hero() {
           <Badge>A habit tracker for iPhone</Badge>
           <Headline />
           <p className="mt-5 text-lg font-medium leading-[1.45] text-body">{lede}</p>
-          <a
-            href="#get"
-            className="mt-7 flex h-[60px] items-center justify-center gap-2.5 self-stretch rounded-[30px] bg-ink text-lg font-semibold text-bg"
-          >
-            Get it on iPhone
-            <ArrowRight size={20} />
-          </a>
+          <GetButton tone="dark" className="mt-7 h-[60px] self-stretch" />
           <a href="#features" className="mt-3 flex h-11 items-center gap-2 text-[17px] font-semibold">
             See how it works
             <ArrowDown size={18} />
@@ -74,10 +69,7 @@ export default function Hero() {
             {lede}
           </p>
           <div className="mt-11 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <a href="#get" className="flex h-16 items-center gap-2.5 rounded-[32px] bg-ink px-8 text-lg font-semibold text-bg">
-              Get it on iPhone
-              <ArrowRight size={20} />
-            </a>
+            <GetButton tone="dark" className="h-16 px-8" />
             <a href="#features" className="flex items-center gap-2 text-[17px] font-semibold">
               See how it works
               <ArrowDown size={18} />
