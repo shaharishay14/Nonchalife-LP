@@ -37,7 +37,8 @@ function Feature05() {
         label="Trophies, and a new trophy unlocked"
         back={{ screen: "badge-unlocked", children: <BadgeUnlockedAnimation /> }}
         front={{ screen: "trophies", label: "Trophies" }}
-        blob={{ color: "#C4E1F6", rotate: -10 }}
+        // Shorter than the design's 720 so the pill stays behind the phones, not the heading.
+        blob={{ color: "#F5E49C", rotate: -10, width: 560 }}
       />
       <FeatureText
         dark

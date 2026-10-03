@@ -12,7 +12,8 @@ type PhonePairProps = {
   back: PhoneScreen;
   /** The phone tilted right, in front. */
   front: PhoneScreen;
-  blob: { color: string; rotate: number };
+  /** The pill behind the phones. `width` defaults to the design's 720. */
+  blob: { color: string; rotate: number; width?: number };
   className?: string;
 };
 
@@ -24,7 +25,7 @@ export default function PhonePair({ label, back, front, blob, className = "" }: 
         style={{
           left: u(-20),
           top: u(260),
-          width: u(720),
+          width: u(blob.width ?? 720),
           height: u(240),
           borderRadius: u(120),
           background: blob.color,
