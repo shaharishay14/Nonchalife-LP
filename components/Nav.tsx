@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import StickyHeader from "@/components/StickyHeader";
+import { APP_STORE_URL } from "@/lib/config";
 
 export default function Nav() {
   return (
@@ -20,12 +21,15 @@ export default function Nav() {
         <Link href="/#features" className="hidden text-base font-medium transition-colors hover:text-body desk:block">
           How it works
         </Link>
-        <Link
-          href="/#get"
+        <Link href="/#pricing" className="hidden text-base font-medium transition-colors hover:text-body desk:block">
+          Plus and pricing
+        </Link>
+        <a
+          href={APP_STORE_URL}
           className="flex h-11 items-center rounded-full bg-ink px-[18px] text-[15px] font-semibold text-bg transition hover:bg-night2 active:scale-[0.97] desk:h-12 desk:px-6 desk:text-base"
         >
           Get the app
-        </Link>
+        </a>
       </div>
       </nav>
     </StickyHeader>

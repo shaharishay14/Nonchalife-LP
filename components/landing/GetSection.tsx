@@ -33,7 +33,7 @@ export default function GetSection() {
           Start today.
         </h2>
         <p className="mt-4 text-lg font-medium leading-[1.4] text-faint desk:mt-6 desk:text-[21px]">
-          Free on iPhone. Add your first habit and go.
+          Free on iPhone, with up to 3 habits. Add your first one and go.
         </p>
         <GetButton tone="lime" className="mt-8 h-[60px] self-stretch desk:mt-10 desk:h-16 desk:self-auto desk:px-9" />
       </section>

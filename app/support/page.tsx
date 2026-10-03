@@ -16,8 +16,26 @@ const answers = [
     q: "My reminders aren’t showing.",
     a: "Open iPhone Settings, then Notifications, then Nonchalife, and make sure notifications are on.",
   },
-  { q: "How do I delete my account?", a: "In the app, open You and choose delete account, or email us." },
-  { q: "Is it free?", a: "Yes, free to download." },
+  {
+    q: "Is it free?",
+    a: "Free to download and use, with up to 3 active habits. Nonchalife Plus unlocks unlimited habits, the Pomodoro timer and Trophies. You can pick monthly, yearly or a one-time Lifetime purchase.",
+  },
+  {
+    q: "How do I cancel Plus?",
+    a: "Open iPhone Settings, tap your name, then Subscriptions, then Nonchalife. Cancel there. Deleting your account does not cancel it.",
+  },
+  {
+    q: "How do I restore my purchase?",
+    a: "Open Nonchalife, go to the Plus screen and tap Restore purchases. Use the same Apple account you bought with.",
+  },
+  {
+    q: "Can I get a refund?",
+    a: "Apple handles refunds. Request one at reportaproblem.apple.com. We can’t issue refunds ourselves.",
+  },
+  {
+    q: "How do I delete my account?",
+    a: "In the app, open You and choose delete account, or email us. This does not cancel a subscription, so cancel that first in iPhone Settings.",
+  },
 ];
 
 export default function SupportPage() {
