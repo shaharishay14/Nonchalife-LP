@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { u } from "@/lib/units";
 
 export type Screen =
@@ -25,6 +25,8 @@ type PhoneProps = {
   size: "lg" | "sm";
   className?: string;
   style?: CSSProperties;
+  /** Live content to show instead of the screenshot, e.g. an animated screen. */
+  children?: ReactNode;
 };
 
 const px = (n: number) => `${n}px`;
@@ -34,8 +36,8 @@ const frames = {
   sm: { unit: px, w: 300, h: 628, r: 48, inner: 39, notch: { l: 102, t: 8, w: 78, h: 23, r: 12 }, shadow: [30, 60] },
 };
 
-/** A phone frame holding an app screenshot from `public/screens/`. */
-export default function Phone({ screen, label, size, className = "", style }: PhoneProps) {
+/** A phone frame holding an app screenshot from `public/screens/`, or live `children`. */
+export default function Phone({ screen, label, size, className = "", style, children }: PhoneProps) {
   const f = frames[size];
   const n = f.unit;
   const dark = darkScreens.includes(screen);
@@ -56,13 +58,15 @@ export default function Phone({ screen, label, size, className = "", style }: Ph
         className={`relative size-full overflow-hidden ${dark ? "bg-night2" : "bg-line"}`}
         style={{ borderRadius: n(f.inner) }}
       >
-        <Image
-          src={`/screens/${screen}.png`}
-          alt={label ?? ""}
-          fill
-          sizes={size === "lg" ? "312px" : "282px"}
-          className="object-cover object-top"
-        />
+        {children ?? (
+          <Image
+            src={`/screens/${screen}.png`}
+            alt={label ?? ""}
+            fill
+            sizes={size === "lg" ? "312px" : "282px"}
+            className="object-cover object-top"
+          />
+        )}
         <div
           className="absolute bg-black"
           style={{

@@ -1,14 +1,17 @@
+import type { ReactNode } from "react";
 import { Blob } from "@/components/landing/Decor";
 import Phone, { type Screen } from "@/components/landing/Phone";
 import { u } from "@/lib/units";
 
+type PhoneScreen = { screen: Screen; label?: string; children?: ReactNode };
+
 type PhonePairProps = {
   /** Describes both phones together. */
   label: string;
-  /** The phone tilted left, behind. */
-  back: { screen: Screen; label: string };
+  /** The phone tilted left, behind. `children` replaces the screenshot with live content. */
+  back: PhoneScreen;
   /** The phone tilted right, in front. */
-  front: { screen: Screen; label: string };
+  front: PhoneScreen;
   blob: { color: string; rotate: number };
   className?: string;
 };

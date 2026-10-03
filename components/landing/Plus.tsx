@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import BadgeUnlockedAnimation from "@/components/landing/BadgeUnlockedAnimation";
 import { FeatureRow, FeatureText, MobilePanel } from "@/components/landing/Features";
 import Phone from "@/components/landing/Phone";
 import PhonePair from "@/components/landing/PhonePair";
@@ -33,8 +34,8 @@ function Feature05() {
   return (
     <FeatureRow>
       <PhonePair
-        label="Trophies and a newly earned trophy"
-        back={{ screen: "badge-unlocked", label: "A new trophy" }}
+        label="Trophies, and a new trophy unlocked"
+        back={{ screen: "badge-unlocked", children: <BadgeUnlockedAnimation /> }}
         front={{ screen: "trophies", label: "Trophies" }}
         blob={{ color: "#C4E1F6", rotate: -10 }}
       />

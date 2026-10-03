@@ -116,3 +116,52 @@ body {
   .check { opacity: 1; }
   .card-done, .fill-sq { background: #d8f07a !important; border-color: #d8f07a !important; }
 }
+
+
+/*
+ * New-badge animation (BadgeUnlockedAnimation), copied verbatim from
+ * design/screens/BadgeUnlocked.dc.html: one 7000ms loop. Only the design's page-level
+ * body and a rules are left out.
+ */
+
+/* Undo the Tailwind reset inside the screen so boxes size as in the design (browser defaults). */
+.bu-root { line-height: normal; }
+.bu-root * { box-sizing: content-box; }
+.bu-root button { box-sizing: border-box; font: inherit; }
+
+/* Paused until on screen. Beats each class's animation shorthand, which resets play-state. */
+.bu-root:not([data-playing]) * { animation-play-state: paused !important; }
+
+@keyframes bu-cycle{0%{opacity:0}2.2%,93%{opacity:1}98.5%,100%{opacity:0}}
+@keyframes bu-chip{0%,1.429%{opacity:0;transform:translateY(-14px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}7.857%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-ring{0%,2.143%{opacity:0;transform:scale(.55);animation-timing-function:cubic-bezier(.2,.7,.2,1)}14.286%,100%{opacity:1;transform:scale(1)}}
+@keyframes bu-disc{0%,2.143%{opacity:0;transform:scale(.7);animation-timing-function:cubic-bezier(.2,.7,.2,1)}12.143%,100%{opacity:1;transform:scale(1)}}
+@keyframes bu-badge{0%,3.571%{opacity:0;transform:perspective(900px) translateY(34px) rotateY(-80deg) scale(.6);animation-timing-function:cubic-bezier(.2,.8,.2,1)}13.857%{opacity:1;transform:perspective(900px) translateY(-4px) rotateY(6deg) scale(1.05);animation-timing-function:ease-out}17.857%,100%{opacity:1;transform:perspective(900px) translateY(0) rotateY(0deg) scale(1)}}
+@keyframes bu-shine{0%,16.429%{opacity:0;transform:translateX(-60px);animation-timing-function:ease-in-out}18.571%{opacity:.6}25.0%{opacity:0;transform:translateX(150px)}100%{opacity:0;transform:translateX(150px)}}
+@keyframes bu-pulse{0%,15.714%{opacity:0;transform:scale(1);animation-timing-function:cubic-bezier(.1,.7,.2,1)}17.143%{opacity:.55}27.857%,100%{opacity:0;transform:scale(1.75)}}
+@keyframes bu-title{0%,17.143%{opacity:0;transform:translateY(24px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}25.714%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-sub{0%,19.286%{opacity:0;transform:translateY(16px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}26.429%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-c1{0%,21.429%{opacity:0;transform:translateY(14px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}27.857%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-c2{0%,22.571%{opacity:0;transform:translateY(14px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}29.0%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-b1{0%,24.286%{opacity:0;transform:translateY(28px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}31.429%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-b2{0%,25.429%{opacity:0;transform:translateY(28px);animation-timing-function:cubic-bezier(.2,.7,.2,1)}32.571%,100%{opacity:1;transform:translateY(0)}}
+@keyframes bu-lk{0%,27.857%{opacity:0;animation-timing-function:cubic-bezier(.2,.7,.2,1)}33.571%,100%{opacity:1}}
+@keyframes bu-float{0%{transform:translateY(0)}100%{transform:translateY(-5px)}}
+@keyframes bu-burst{0%,15.714%{opacity:0;transform:translate(-50%,-50%) translate(0px,0px) scale(.3) rotate(0deg);animation-timing-function:cubic-bezier(.12,.75,.2,1)}16.857%{opacity:1}25.714%{opacity:1;transform:translate(-50%,-50%) translate(calc(var(--dx)*1px),calc(var(--dy)*1px)) scale(1) rotate(calc(var(--rot)*1deg));animation-timing-function:cubic-bezier(.5,0,.9,.6)}37.857%,100%{opacity:0;transform:translate(-50%,-50%) translate(calc(var(--dx)*1.12px),calc(var(--dy)*1px + 90px)) scale(.9) rotate(calc(var(--rot)*1.6deg))}}
+.bu-cycle{animation:bu-cycle 7000ms linear infinite}
+.bu-float{animation:bu-float 2600ms ease-in-out infinite alternate;animation-delay:1300ms}
+.bu-shine{opacity:0;animation:bu-shine 7000ms linear infinite}
+.bu-pulse{opacity:0;animation:bu-pulse 7000ms linear infinite}
+.bu-p{opacity:0;animation:bu-burst 7000ms linear infinite;animation-delay:var(--pd,0ms)}
+.bu-chip{animation:bu-chip 7000ms linear infinite}
+.bu-ring{animation:bu-ring 7000ms linear infinite}
+.bu-disc{animation:bu-disc 7000ms linear infinite}
+.bu-badge{animation:bu-badge 7000ms linear infinite}
+.bu-title{animation:bu-title 7000ms linear infinite}
+.bu-sub{animation:bu-sub 7000ms linear infinite}
+.bu-c1{animation:bu-c1 7000ms linear infinite}
+.bu-c2{animation:bu-c2 7000ms linear infinite}
+.bu-b1{animation:bu-b1 7000ms linear infinite}
+.bu-b2{animation:bu-b2 7000ms linear infinite}
+.bu-lk{animation:bu-lk 7000ms linear infinite}
+@media (prefers-reduced-motion:reduce){.bu-cycle,.bu-chip,.bu-ring,.bu-disc,.bu-badge,.bu-title,.bu-sub,.bu-c1,.bu-c2,.bu-b1,.bu-b2,.bu-lk,.bu-float{animation:none}.bu-p,.bu-pulse,.bu-shine{display:none}}
