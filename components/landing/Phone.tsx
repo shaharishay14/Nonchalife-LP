@@ -2,7 +2,20 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import { u } from "@/lib/units";
 
-export type Screen = "today" | "activity" | "activity-dark" | "timer";
+export type Screen =
+  | "today"
+  | "activity"
+  | "activity-dark"
+  | "timer"
+  | "pomodoro-setup"
+  | "pomodoro-focus-dark"
+  | "badge-unlocked"
+  | "trophies"
+  | "paywall"
+  | "paywall-dark";
+
+/** Screens with a dark background, so the frame stays dark while the image loads. */
+const darkScreens: Screen[] = ["activity-dark", "pomodoro-focus-dark", "badge-unlocked", "paywall-dark"];
 
 type PhoneProps = {
   screen: Screen;
@@ -25,7 +38,7 @@ const frames = {
 export default function Phone({ screen, label, size, className = "", style }: PhoneProps) {
   const f = frames[size];
   const n = f.unit;
-  const dark = screen === "activity-dark";
+  const dark = darkScreens.includes(screen);
 
   return (
     <div
