@@ -68,11 +68,11 @@ export default function Hero() {
               <ArrowDown size={18} />
             </a>
           </div>
-          <span className="mt-2 text-[15px] font-medium text-muted desk:mt-5">Free to download</span>
+          <span className="mt-2 text-[15px] font-medium text-muted desk:mt-5">Free, with up to 3 habits. Plus unlocks more.</span>
         </div>
 
-        {/* Mobile art: the 390 design's coordinates, offset by the text block above it. */}
-        <div className="relative mx-auto h-[720px] w-[390px] desk:hidden">
+        {/* Mobile art: the 390 design’s coordinates. Its top sits at y=470 in the design, 18px below the text block. */}
+        <div className="relative mx-auto mt-[18px] h-[720px] w-[390px] desk:hidden">
           <Blob style={{ left: -90, top: 290, width: 520, height: 170, borderRadius: 85, background: "#D8F07A", transform: "rotate(-12deg)" }} />
           <Blob style={{ left: 200, top: 10, width: 300, height: 120, borderRadius: 60, background: "#C4E1F6", transform: "rotate(14deg)" }} />
           <Floats items={floatsMobile} />

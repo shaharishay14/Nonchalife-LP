@@ -30,11 +30,14 @@ type FeatureTextProps = {
   title: [string, string];
   body: string;
   tags: string[];
+  /** Light text and dark tags, for the dark Plus section. */
+  dark?: boolean;
+  className?: string;
 };
 
-function FeatureText({ number, numberColor, title, body, tags }: FeatureTextProps) {
+export function FeatureText({ number, numberColor, title, body, tags, dark = false, className = "" }: FeatureTextProps) {
   return (
-    <div className="flex flex-col items-start">
+    <div className={`flex flex-col items-start ${className}`}>
       <span
         aria-hidden="true"
         className="font-display text-8xl font-extrabold leading-[0.8] tracking-[-0.06em] text-(color:--num-m) desk:text-[clamp(96px,10.42vw,150px)] desk:text-(color:--num-d)"
@@ -47,12 +50,18 @@ function FeatureText({ number, numberColor, title, body, tags }: FeatureTextProp
         <br />
         {title[1]}
       </h3>
-      <p className="mt-4 text-[17px] font-medium leading-normal text-body desk:mt-6 desk:max-w-[470px] desk:text-[clamp(17px,1.46vw,21px)] desk:leading-[1.45]">
+      <p
+        className={`mt-4 text-[17px] font-medium leading-normal desk:mt-6 desk:max-w-[470px] desk:text-[clamp(17px,1.46vw,21px)] desk:leading-[1.45] ${
+          dark ? "text-faint" : "text-body"
+        }`}
+      >
         {body}
       </p>
       <div className="mt-6 flex flex-wrap gap-2.5 desk:mt-8">
         {tags.map((t) => (
-          <Tag key={t}>{t}</Tag>
+          <Tag key={t} dark={dark}>
+            {t}
+          </Tag>
         ))}
       </div>
     </div>
@@ -60,7 +69,7 @@ function FeatureText({ number, numberColor, title, body, tags }: FeatureTextProp
 }
 
 /** One feature: text and art side by side on desktop, stacked on mobile. */
-function FeatureRow({ children }: { children: React.ReactNode }) {
+export function FeatureRow({ children }: { children: React.ReactNode }) {
   return (
     <div
       className="desk:grid desk:grid-cols-2 desk:items-center desk:gap-(--g)"
@@ -72,7 +81,7 @@ function FeatureRow({ children }: { children: React.ReactNode }) {
 }
 
 /** Mobile art: a rounded colored panel below the text. */
-function MobilePanel({ label, color, children }: { label: string; color: string; children: React.ReactNode }) {
+export function MobilePanel({ label, color, children }: { label: string; color: string; children: React.ReactNode }) {
   return (
     <div
       role="img"
