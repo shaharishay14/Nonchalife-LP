@@ -36,7 +36,7 @@ function Feature05() {
         label="Trophies and a newly earned trophy"
         back={{ screen: "badge-unlocked", label: "A new trophy" }}
         front={{ screen: "trophies", label: "Trophies" }}
-        blob={{ color: "#F5E49C", rotate: -10 }}
+        blob={{ color: "#C4E1F6", rotate: -10 }}
       />
       <FeatureText
         dark
@@ -48,7 +48,7 @@ function Feature05() {
         // The design's blob and phone reach into this column; keep the text readable above them.
         className="relative z-10"
       />
-      <MobilePanel label="Trophies" color="#F5E49C">
+      <MobilePanel label="Trophies" color="#C4E1F6">
         <Phone size="sm" screen="trophies" className="left-1/2 top-11 -translate-x-1/2" />
       </MobilePanel>
     </FeatureRow>

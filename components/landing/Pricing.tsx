@@ -46,9 +46,11 @@ export default function Pricing() {
           <div className="flex flex-col gap-3.5 rounded-[28px] bg-lime p-6 text-ink desk:gap-4 desk:rounded-card desk:p-8">
             <div className="flex items-center gap-3 desk:gap-3.5">
               <h3 className={cardTitle}>Nonchalife Plus</h3>
+              {/* On the lime card the mark goes dark, keeping the darker center. */}
               <PlusMark
-                className="size-[25px] gap-0.5 desk:size-[30px] desk:gap-[3px]"
-                squareClassName="rounded-[2px] bg-ink desk:rounded-[3px]"
+                className="grid-cols-[repeat(3,8px)] grid-rows-[repeat(3,8px)] gap-0.5 desk:grid-cols-[repeat(3,9px)] desk:grid-rows-[repeat(3,9px)]"
+                armClassName="rounded-[2.5px] bg-night2"
+                centerClassName="rounded-[2.5px] bg-ink"
               />
             </div>
             <p className={cardText}>Unlimited habits, the Pomodoro timer and Trophies.</p>
